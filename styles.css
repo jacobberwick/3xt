@@ -1,92 +1,103 @@
 /*color palette*/
 
 :root {
-  --bg-1:#0A0E14;
-  --bg-2:#261B36;
-  --bg-3:#1f232f;
-  --txt-5:#6F3C89;
-  --txt-4:#C6A3F2;
-  --txt-3:#9688AF;
-  --txt-2:#DDCCFC;
-  --txt-1:#DDCCFC;
-  --txt-err:#d9005c;
-  --font-family:JetBrains mono;
-  --font-weight:400;
-  --font-weight-light:300
+	--bg-1: #0a0e14;
+	--bg-2: #261b36;
+	--bg-3: #1f232f;
+	--txt-5: #6f3c89;
+	--txt-4: #c6a3f2;
+	--txt-3: #9688af;
+	--txt-2: #ddccfc;
+	--txt-1: #ddccfc;
+	--txt-err: #d9005c;
+	--font-family: JetBrains mono;
+	--font-weight: 400;
+	--font-weight-light: 300;
 }
 
-
 body {
-    background-color:var(--bg-1);
-    font-family:var(--font-family);
+	background-color: var(--bg-1);
+	font-family: var(--font-family);
 }
 
 #title-bar {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 48px;
-    background-color: var(--bg-1);
-    outline: auto;
-    outline-style: solid;
-    outline-width: 1px;
-    outline-color: var(--bg-3);
-    padding: 0 16px;
-    transition: outline-color 0.2s ease;
-    user-select: none;
-        
-}
-
-#title-bar-label {
-    position: absolute;
-    top: -8px;
-    left: 16px;
-    font: 16px;
-    color: var(--bg-3);
-    background-color: var(--bg-1);
-    padding: 0 4px;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 48px;
+	background-color: var(--bg-1);
+	outline: auto;
+	outline-style: solid;
+	outline-width: 1px;
+	outline-color: var(--bg-3);
+	padding: 0 16px;
+	transition: outline-color 0.2s ease;
+	user-select: none;
 }
 
 #title-bar:hover {
     outline-color: var(--txt-4);
-    
+}
+
+#title-bar:hover #title-bar-label {
+	color: var(--txt-4);
+}
+
+#title-bar-label {
+	position: absolute;
+	top: -8px;
+	left: 16px;
+	font-size: 16px;
+	color: var(--bg-3);
+	background-color: var(--bg-1);
+	padding: 0 4px;
+}
+
+#drag-region {
+	flex: 1;
+	height: 100%;
+	width: 50%;
+}
+
+#title-bar-spacer {
+	flex: 1;
+	height: 100%;
 }
 
 #window-controls {
-    display: flex;
-    gap: 4px;
+	display: flex;
+	gap: 4px;
 }
 
 #window-controls button {
-    align-self: auto;
-    width: 24px;
-    height: 24px;
-    border: none;
-    background: none;
-    color: var(--bg-3);
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 14px;
+	align-self: auto;
+	width: 24px;
+	height: 24px;
+	border: none;
+	background: none;
+	color: var(--bg-3);
+	cursor: pointer;
+	border-radius: 4px;
+	font-size: 14px;
 }
 
 #window-controls :hover {
-    color: var(--txt-4);
+	color: var(--txt-4);
 }
 
-#formats-list{
-    display: flex;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    gap: 8px;
-    float: left;
-    color: var(--bg-3);
-    text-align: center;
-    cursor: pointer;
+#formats-list {
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	gap: 8px;
+	float: left;
+	color: var(--bg-3);
+	text-align: center;
+	cursor: pointer;
 }
 
-#formats-list :hover{
-    color: var(--txt-4);
+#formats-list :hover {
+	color: var(--txt-4);
 }
-
