@@ -22,6 +22,7 @@ body {
 }
 
 #title-bar {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,6 +36,16 @@ body {
     transition: outline-color 0.2s ease;
     user-select: none;
         
+}
+
+#title-bar-label {
+    position: absolute;
+    top: -8px;
+    left: 16px;
+    font: 16px;
+    color: var(--bg-3);
+    background-color: var(--bg-1);
+    padding: 0 4px;
 }
 
 #title-bar:hover {
