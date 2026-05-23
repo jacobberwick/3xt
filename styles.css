@@ -50,20 +50,7 @@ body {
 
 #title-bar:hover {
     outline-color: var(--txt-4);
-    #title-bar-label:hover {
-        outline-color: var(--txt-4);
-    }
-}
-
-#drag-region {
-    flex: 1;
-    height: 100%;
-    width: 50%;
-}
-
-#title-bar-spacer {
-    flex:1;
-    height: 100%;
+    
 }
 
 #window-controls {
