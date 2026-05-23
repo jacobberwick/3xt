@@ -1,6 +1,6 @@
 # 3xt (wip name)
 
-## 3xt seeks to be an open-source all-in-one organization, notebook, productivity app.
+### 3xt seeks to be an open-source all-in-one organization, notebook, productivity app.
 
 3xt allows you to work within three distinct formats:
 - Note Pages
