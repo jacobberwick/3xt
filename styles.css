@@ -50,6 +50,9 @@ body {
 
 #title-bar:hover {
     outline-color: var(--txt-4);
+    #title-bar-label:hover {
+        outline-color: var(--txt-4);
+    }
 }
 
 #drag-region {
