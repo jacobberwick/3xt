@@ -16,7 +16,14 @@ function createWindow() {
   ipcMain.on('window-maximize', () => {
     win.isMaximized() ? win.unmaximize() : win.maximize();
   });
+  
   ipcMain.on('window-close', () => win.close());
+
+  ipcMain.on('window-drag', (event, {deltaX, deltaY}) => {
+    const [x, y] = win.getPosition();
+    win.setPosition(x + deltaX, y + deltaY);
+  });
+
 }
 
 app.on('window-all-closed', () => {

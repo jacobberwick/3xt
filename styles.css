@@ -37,23 +37,24 @@ body {
         
 }
 
+#title-bar:hover {
+    outline-color: var(--txt-4);
+}
+
 #drag-region {
     flex: 1;
     height: 100%;
     width: 50%;
-    -webkit-app-region: drag;
 }
 
 #title-bar-spacer {
     flex:1;
     height: 100%;
-    -webkit-app-region: no-drag;
 }
 
 #window-controls {
     display: flex;
     gap: 4px;
-    -webkit-app-region: no-drag;
 }
 
 #window-controls button {
@@ -82,7 +83,6 @@ body {
     color: var(--bg-3);
     text-align: center;
     cursor: pointer;
-    -webkit-app-region: no-drag;
 }
 
 #formats-list :hover{
