@@ -1,7 +1,7 @@
 {
   "name": "3xt",
   "version": "1.0.0",
-  "description": "Open-source all-in-one oragnization, notebook, productivity app",
+  "description": "Open-source all-in-one organization, notebook, productivity app",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
