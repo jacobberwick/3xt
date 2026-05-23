@@ -3,9 +3,9 @@
 ### 3xt seeks to be an open-source all-in-one organization, notebook, productivity app.
 
 3xt allows you to work within three distinct formats:
-- Note Pages
-- Boards
-- Widget Pages
+- **Note Pages**
+- **Boards**
+- **Widget Pages**
 
 ### Notes Pages
 Note pages or notes allow you to take notes, make documents, plan projects, etc.
