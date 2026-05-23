@@ -1,0 +1,24 @@
+{
+  "name": "3xt",
+  "version": "1.0.0",
+  "description": "Open-source all-in-one oragnization, notebook, productivity app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacobberwick/3xt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jacobberwick/3xt/issues"
+  },
+  "homepage": "https://github.com/jacobberwick/3xt#readme",
+  "devDependencies": {
+    "electron": "^42.2.0"
+  }
+}
