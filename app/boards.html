@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="styles/styles.css" />
 	</head>
-	<body>
+	<body id="body1">
 		<!--Title Bar-->
 		<div id="title-bar">
 			<span id="title-bar-label">navbar</span>
@@ -26,21 +26,24 @@
 			</div>
 		</div>
 
-		<div id="sidebar">
-			<span id="sidebar-label">boards</span>
-			<div id="sidebar-list">
-				<div id="sidebar-spacer">
-					<ul id="boards-list" class="sidebar-list"></ul>
+		<div id="content">
+			<!-- Side Bar-->
+			<div id="sidebar">
+				<span id="sidebar-label">boards</span>
+				<div id="sidebar-list">
+					<div id="sidebar-spacer">
+						<ul id="boards-list" class="sidebar-list"></ul>
+					</div>
+					<button id="btn-newboard" class="btn-newitem">> new_board</button>
 				</div>
-				<button id="btn-newboard" class="btn-newitem">> new_board</button>
 			</div>
-
 
 			<!--Main-->
 			<div id="main">
 				<span id="main-label">main</span>
 			</div>
 		</div>
+
 
 		<script src="../node_modules/pouchdb/dist/pouchdb.js"></script>
 		<script src="utils/utils.js"></script>
