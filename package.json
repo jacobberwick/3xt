@@ -20,13 +20,9 @@
   },
   "homepage": "https://github.com/jacobberwick/3xt#readme",
   "devDependencies": {
-    "@vitejs/plugin-react": "^6.0.2",
-    "electron": "^42.2.0",
-    "vite": "^8.0.14"
+    "electron": "^42.2.0"
   },
   "dependencies": {
-    "pouchdb-browser": "^9.0.0",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "pouchdb": "^9.0.0"
   }
 }

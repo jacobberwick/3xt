@@ -37,12 +37,24 @@
 		<div id="sidebar">
 			<span id="sidebar-label">pages</span>
 			<div id="sidebar-list">
-				<div id="sidebar-spacer"></div>
+				<div id="sidebar-spacer">
+					<!-- empty space if the user has no files, otherwise filled with whatever is already there-->
+				</div>
 				<button id="btn-newpage">> new_page</button>
 			</div>
 		</div>
 
-		<script src="utils/database.js"></script>
+		<script src="../node_modules/pouchdb/dist/pouchdb.js"></script>
+		<script src="utils/utils.js"></script>
+		<script src="utils/database/baseDB.js"></script>
+		<script src="utils/database/notes.js"></script>
+		<script src="utils/database/boards.js"></script>
+		<script src="utils/database/boardItems.js"></script>
+		<script src="utils/database/widgets.js"></script>
+		<script src="utils/database/widgetPages.js"></script>
+		<script src="utils/actions/notesPage.js"></script>
+		<script src="utils/actions/boardPage.js"></script>
+		<script src="utils/actions/widgetPage.js"></script>
 		<script src="app.js"></script>
 	</body>
 </html>
