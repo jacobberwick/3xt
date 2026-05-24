@@ -1,4 +1,4 @@
-class BoardDB extends BaseDB {
+class BoardsDB extends BaseDB {
 	constructor() {
 		super("3xt_boards", "board");
 	}
@@ -17,4 +17,4 @@ class BoardDB extends BaseDB {
 	}
 }
 
-const Boards = new BoardDB();
+const Boards = new BoardsDB();

@@ -47,7 +47,7 @@ document.getElementById("boards").addEventListener("click", () => {
 	globalThis.location.href = "boards.html";
 });
 document.getElementById("widgets").addEventListener("click", () => {
-	globalThis.location.href = "widgets.html";
+	globalThis.location.href = "grids.html";
 });
 
 const path = globalThis.location.pathname;
@@ -60,13 +60,15 @@ if (path.includes("index.html")) {
 }
 
 if (path.includes("boards.html")) {
-	document.getElementById("btn-newboard");
-	// .addEventListener("click", () => newBoard());
-	// loadBoards();
+	document
+		.getElementById("btn-newboard")
+		.addEventListener("click", () => newBoard());
+	loadBoards();
 }
 
-if (path.includes("widgets.html")) {
-	document.getElementById("btn-newgrid");
-	// .addEventListener("click", () => newWidgetPage());
-	// loadWidgetPages();
+if (path.includes("grids.html")) {
+	document
+		.getElementById("btn-newgrid")
+		.addEventListener("click", () => newGrid());
+	loadGrids();
 }

@@ -237,7 +237,7 @@ body {
 	padding: 0;
 }
 
-.note-title {
+.item-title {
 	color: var(--bg-3);
 	background: none;
 	align-self: auto;
@@ -252,7 +252,7 @@ body {
 	transition: color 0.2s ease;
 }
 
-.note-delete {
+.item-delete {
 	color: var(--bg-3);
 	background: none;
 	align-self: auto;
@@ -266,15 +266,15 @@ body {
 	transition: color 0.2s ease;
 }
 
-.note-title:hover {
+.item-title:hover {
 	color:var(--txt-4);
 }
 
-.note-delete:hover {
+.item-delete:hover {
 	color:var(--txt-4);
 }
 
-.note-title.active {
+.item-title.active {
 	color:var(--txt-5);
 	cursor: default;
 }
