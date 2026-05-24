@@ -6,3 +6,6 @@ function generateId(prefix) {
 function now() {
 	return new Date().toISOString();
 }
+
+async function testNote() {
+}
