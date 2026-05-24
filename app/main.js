@@ -22,7 +22,7 @@ function createWindow() {
 		},
 		frame: false,
 	});
-	window.loadFile("index.html");
+	window.loadFile("app/index.html");
 
 	window.on("closed", () => {
 		window = null;

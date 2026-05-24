@@ -2,7 +2,7 @@
   "name": "3xt",
   "version": "1.0.0",
   "description": "Open-source all-in-one organization, notebook, productivity app",
-  "main": "main.js",
+  "main": "app/main.js",
   "scripts": {
     "start": "electron .",
     "dev": "npx electronmon --trace-warnings ."
