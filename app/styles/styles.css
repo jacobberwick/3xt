@@ -120,8 +120,8 @@ body {
 }
 
 #navbar-items li.active {
-	color: var(--txt-5); /* your purple */
-	cursor: default; /* removes the pointer cursor since it's not clickable */
+	color: var(--txt-5);
+	cursor: default;
 }
 
 /*pages & boards*/
@@ -172,6 +172,7 @@ body {
 	border-radius: 4px;
 	height: auto;
 	padding: 8px;
+	padding-left: 16px;
 	font-family: var(--font-family);
 	transition: color 0.2s ease;
 }
@@ -193,10 +194,12 @@ body {
 	border: none;
 	cursor: pointer;
 	font-size: 14px;
-	border-radius: 4px;
+	border-radius: 0px;
 	height: auto;
-	padding: 8px;
+	padding-right: 8px;
+	padding-left: 0px;
 	font-family: var(--font-family);
+	color: var(--bg-3);
 	transition: color 0.2s ease;
 }
 
@@ -211,5 +214,19 @@ body {
 	height: auto;
 	padding: 1px;
 	font-family: var(--font-family);
+	color: var(--bg-3);
 	transition: color 0.2s ease;
+}
+
+.note-title:hover {
+	color:var(--txt-4);
+}
+
+.note-delete:hover {
+	color:var(--txt-4);
+}
+
+.note-title.active {
+	color:var(--txt-5);
+	cursor: default;
 }

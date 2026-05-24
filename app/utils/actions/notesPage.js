@@ -8,7 +8,7 @@ async function loadNotes() {
 		const noteElement = document.createElement("li");
 
 		const titleBtn = document.createElement("button");
-		titleBtn.textContent = note.title;
+		titleBtn.textContent = "> " + note.title;
 		titleBtn.className = "note-title";
 		//TODO VADIM
 		// titleBtn.addEventListener("click", () => openNote(note._id));
@@ -17,7 +17,7 @@ async function loadNotes() {
 		deleteBtn.textContent = "×";
 		deleteBtn.className = "note-delete";
 		//TODO VADIM
-		// deleteBtn.addEventListener("click", () => deleteNote(note._id));
+		deleteBtn.addEventListener("click", () => deleteNote(note._id));
 
 		noteElement.appendChild(titleBtn);
 		noteElement.appendChild(deleteBtn);
