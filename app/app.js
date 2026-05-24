@@ -40,23 +40,33 @@ document.addEventListener("mouseup", () => {
 	isDragging = false;
 });
 
-const notesBtn = document.getElementById("notes");
-if (!notesBtn.classList.contains("active")) {
-	notesBtn.addEventListener("click", () => {
-		globalThis.location.href = "index.html";
-	});
-}
-const boardsBtn = document.getElementById("boards");
-if (!boardsBtn.classList.contains("active")) {
-	boardsBtn.addEventListener("click", () => {
-		globalThis.location.href = "boards.html";
-	});
-}
-const widgetsBtn = document.getElementById("widgets");
-if (!widgetsBtn.classList.contains("active")) {
-	widgetsBtn.addEventListener("click", () => {
-		globalThis.location.href = "widgets.html";
-	});
+document.getElementById("notes").addEventListener("click", () => {
+	globalThis.location.href = "index.html";
+});
+document.getElementById("boards").addEventListener("click", () => {
+	globalThis.location.href = "boards.html";
+});
+document.getElementById("widgets").addEventListener("click", () => {
+	globalThis.location.href = "widgets.html";
+});
+
+const path = globalThis.location.pathname;
+
+if (path.includes("index.html")) {
+	document
+		.getElementById("btn-newnote")
+		.addEventListener("click", () => newNote());
+	loadNotes();
 }
 
-testNote();
+if (path.includes("boards.html")) {
+	document.getElementById("btn-newboard");
+	// .addEventListener("click", () => newBoard());
+	// loadBoards();
+}
+
+if (path.includes("widgets.html")) {
+	document.getElementById("btn-newgrid");
+	// .addEventListener("click", () => newWidgetPage());
+	// loadWidgetPages();
+}
