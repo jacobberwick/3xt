@@ -115,20 +115,15 @@ body {
 	transition: color 0.2s ease;
 }
 
-#navbar-items #notes-sel {
-	color: var(--txt-5);
-}
 
-#notes-sel {
-	color: var(--txt-5);
-}
-
-#boards-sel {
-	color: var(--txt-5);
-}
 
 #navbar-items li:hover {
 	color: var(--txt-4);
+}
+
+#navbar-items li.active {
+    color: var(--txt-5); /* your purple */
+    cursor: default;     /* removes the pointer cursor since it's not clickable */
 }
 
 /*pages & boards*/
