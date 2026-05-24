@@ -3,12 +3,11 @@ class WidgetPagesDB extends BaseDB {
         super("3xt_widgetPages", "widgetPage")
     }
 
-    async create(title, widgets = [], tags = []) {
+    async create(title, tags = []) {
         const widgetPage = {
             _id: generateId("widgetPage"),
             type: "widgetPage",
             title,
-            widgets,
             tags,
             created_at: now(),
             updated_at: now()

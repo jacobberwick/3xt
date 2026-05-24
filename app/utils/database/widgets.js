@@ -1,20 +1,26 @@
 class WidgetsDB extends BaseDB {
-    constructor() {
-        super("3xt_widgets", "widget")
-    }
+	constructor() {
+		super("3xt_widgets", "widget");
+	}
 
-    async create(widget_type, position = {}, config = {}) {
-        const widget = {
-            _id: generateId("widget"),
-            widget_type,
-            position,
-            config,
-            createdAt: now(),
-            updatedAt: now()
-        }
+	async create(widgetPage, widget_type, position = {}, config = {}) {
+		const widget = {
+			_id: generateId("widget"),
+			widgetPage_id: widgetPage,
+			widget_type,
+			position,
+			config,
+			created_at: now(),
+			updated_at: now(),
+		};
 
-        return await this.add(widget)
-    }
+		return await this.add(widget);
+	}
+
+	async getWidgets(id) {
+		const allWidgets = await this.getAllDocuments();
+		return allWidgets.filter(widget => widget.widgetPage_id === id);
+	}
 }
 
 const Widgets = new WidgetsDB()
