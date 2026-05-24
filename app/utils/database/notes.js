@@ -10,8 +10,8 @@ class NotesDB extends BaseDB {
 			title,
 			content,
 			tags,
-			createdAt: now(),
-			updatedAt: now()
+			created_at: now(),
+			updated_at: now(),
 		};
 
         return await this.add(note);
