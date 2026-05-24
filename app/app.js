@@ -40,25 +40,22 @@ document.addEventListener('mouseup', () => {
     isDragging = false;
 });
 
-document.getElementById('notes').addEventListener('click', () => { 
-    window.location.href = 'index.html';
-});
-
-document.getElementById('boards').addEventListener('click', () => { 
-    window.location.href = 'boards.html';
-});
-
 const notesBtn = document.getElementById('notes');
 if (!notesBtn.classList.contains('active')) {
     notesBtn.addEventListener('click', () => {
         window.location.href = 'index.html';
     });
 }
-
 const boardsBtn = document.getElementById('boards');
 if (!boardsBtn.classList.contains('active')) {
     boardsBtn.addEventListener('click', () => {
         window.location.href = 'boards.html';
+    });
+}
+const widgetsBtn = document.getElementById('widgets');
+if (!widgetsBtn.classList.contains('active')) {
+    widgetsBtn.addEventListener('click', () => {
+        window.location.href = 'widgets.html';
     });
 }
 
