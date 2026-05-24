@@ -30,15 +30,20 @@
 			<span id="sidebar-label">boards</span>
 			<div id="sidebar-list">
 				<div id="sidebar-spacer">
-					<ul id="boards-list">
-						<!-- add css for the boards-list -->
-					</ul>
+					<ul id="boards-list" class="sidebar-list"></ul>
 				</div>
 				<button id="btn-newboard" class="btn-newitem">> new_board</button>
+			</div>
+
+
+			<!--Main-->
+			<div id="main">
+				<span id="main-label">main</span>
 			</div>
 		</div>
 
 		<script src="../node_modules/pouchdb/dist/pouchdb.js"></script>
+		<script src="utils/utils.js"></script>
 		<script src="utils/database/baseDB.js"></script>
 		<script src="utils/database/boards.js"></script>
 		<script src="utils/database/boardItems.js"></script>

@@ -7,20 +7,19 @@ async function loadNotes() {
 	notes.forEach((note) => {
 		const noteElement = document.createElement("li");
 
-		const titleBtn = document.createElement("button");
-		titleBtn.textContent = "> " + note.title;
-		titleBtn.className = "note-title";
+		const titleButton = document.createElement("button");
+		titleButton.textContent = "> " + note.title;
+		titleButton.className = "item-title";
 		//TODO VADIM
-		// titleBtn.addEventListener("click", () => openNote(note._id));
+		// titleButton.addEventListener("click", () => openNote(note._id));
 
-		const deleteBtn = document.createElement("button");
-		deleteBtn.textContent = "×";
-		deleteBtn.className = "note-delete";
-		//TODO VADIM
-		deleteBtn.addEventListener("click", () => deleteNote(note._id));
+		const deleteButton = document.createElement("button");
+		deleteButton.textContent = "×";
+		deleteButton.className = "item-delete";
+		deleteButton.addEventListener("click", () => deleteNote(note._id));
 
-		noteElement.appendChild(titleBtn);
-		noteElement.appendChild(deleteBtn);
+		noteElement.appendChild(titleButton);
+		noteElement.appendChild(deleteButton);
 		notesList.appendChild(noteElement);
 	});
 }
