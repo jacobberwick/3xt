@@ -1,44 +1,47 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>3xt</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body id="body1">
-        <!--Title Bar-->
-        <div id="title-bar">
-            <span id="title-bar-label">navbar</span>
-            <div id="navbar">
-                <ul id="navbar-items">
-                    <li id="notes">notes</li>
-                    <li id="boards">boards</li>
-                    <li id="widgets">widgets</li>
-                </ul>
-            </div>
-            <div id="window-controls">
-                <button id="btn-minimize">—</button>
-                <button id="btn-maximize">•</button>
-                <button id="btn-close">×</button>
-            </div>
-        </div>
+<!doctype html>
 
-        <!--Pages/Boards-->
-        <div id="pages-boards">
-            <span id="pages-boards-label">pages/boards</span>
-            <div id="pages-boards-list">
-                <div id="pages-boards-spacer"></div>
-                <button id="btn-newpage">> new_page</button>
-            </div>
-        </div>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>3xt</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body id="body1">
+		<!--Title Bar-->
+		<div id="title-bar">
+			<span id="title-bar-label">navbar</span>
+			<div id="navbar">
+				<ul id="navbar-items">
+					<li id="notes">notes</li>
+					<li id="boards">boards</li>
+					<li id="widgets">widgets</li>
+				</ul>
+			</div>
+			<div id="window-controls">
+				<button id="btn-minimize">—</button>
+				<button id="btn-maximize">•</button>
+				<button id="btn-close">×</button>
+			</div>
+		</div>
 
-        <script src="app.js" defer></script>
-    </body>
+		<!--Pages/Boards-->
+		<!--
+            - notes will say pages
+            - boards will say boards
+            - widgets will say grids
+            - sessionStorage check for what page you are on
+        -->
+		<div id="sidebar">
+			<span id="sidebar-label">pages 000</span>
+			<div id="sidebar-list">
+				<div id="sidebar-spacer"></div>
+				<button id="btn-newpage">> new_page</button>
+			</div>
+		</div>
+
+		<script src="App.js"></script>
+	</body>
 </html>

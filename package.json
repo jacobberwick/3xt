@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "start:dev": "npx electronmon --trace-warnings ."
+    "dev": "npx electronmon --trace-warnings ."
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "vite": "^8.0.14"
   },
   "dependencies": {
+    "pouchdb-browser": "^9.0.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   }

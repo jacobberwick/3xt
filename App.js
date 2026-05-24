@@ -30,8 +30,6 @@ document.addEventListener('mousemove', (e) => {
     const deltaX = e.screenX - startX;
     const deltaY = e.screenY - startY;
 
-    console.log('delta:', deltaX, deltaY);
-
     ipcRenderer.send('window-drag', {deltaX, deltaY});
 
     startX = e.screenX;
