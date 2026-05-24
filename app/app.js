@@ -40,4 +40,14 @@ document.addEventListener('mouseup', () => {
     isDragging = false;
 });
 
+document.getElementById('notes').addEventListener('click', () => { 
+    window.location.href = 'index.html';
+})
+
+document.getElementById('boards').addEventListener('click', () => { 
+    window.location.href = 'boards.html';
+})
+
+
+
 testNote();

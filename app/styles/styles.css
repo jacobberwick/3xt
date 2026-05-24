@@ -115,6 +115,14 @@ body {
 	transition: color 0.2s ease;
 }
 
+#navbar-items #notes-sel {
+	color: var(--txt-5);
+}
+
+#notes-sel {
+	color: var(--txt-5);
+}
+
 #boards-sel {
 	color: var(--txt-5);
 }
