@@ -46,7 +46,7 @@ document.getElementById("notes").addEventListener("click", () => {
 document.getElementById("boards").addEventListener("click", () => {
 	globalThis.location.href = "boards.html";
 });
-document.getElementById("widgets").addEventListener("click", () => {
+document.getElementById("grids").addEventListener("click", () => {
 	globalThis.location.href = "grids.html";
 });
 
