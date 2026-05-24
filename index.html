@@ -12,20 +12,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
     </head>
-    <body>
+    <body id="body1">
         <!--Title Bar-->
         <div id="title-bar">
             <span id="title-bar-label">navbar</span>
-            <div id="formats">
-                <ul id="formats-list">
+            <div id="navbar">
+                <ul id="navbar-items">
                     <li id="notes">notes</li>
                     <li id="boards">boards</li>
                     <li id="widgets">widgets</li>
                 </ul>
             </div>
-            <div id="title-bar-spacer"></div>
-            <div id="drag-region"></div>
-            <div id="title-bar-spacer"></div>
             <div id="window-controls">
                 <button id="btn-minimize">—</button>
                 <button id="btn-maximize">•</button>
@@ -35,7 +32,11 @@
 
         <!--Pages/Boards-->
         <div id="pages-boards">
-
+            <span id="pages-boards-label">pages/boards</span>
+            <div id="pages-boards-list">
+                <div id="pages-boards-spacer"></div>
+                <button id="btn-newpage">> new_page</button>
+            </div>
         </div>
 
         <script src="app.js" defer></script>

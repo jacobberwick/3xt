@@ -15,10 +15,23 @@
 	--font-weight-light: 300;
 }
 
+.button {
+    align-self: auto;
+	border: none;
+	background: none;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+/*body*/
+
 body {
 	background-color: var(--bg-1);
 	font-family: var(--font-family);
+    padding: 4px;
 }
+
+/*titleBar*/
 
 #title-bar {
 	position: relative;
@@ -34,6 +47,7 @@ body {
 	padding: 0 16px;
 	transition: outline-color 0.2s ease;
 	user-select: none;
+    margin-bottom: 16px;
 }
 
 #title-bar:hover {
@@ -46,12 +60,13 @@ body {
 
 #title-bar-label {
 	position: absolute;
-	top: -8px;
+	top: -12px;
 	left: 16px;
 	font-size: 16px;
 	color: var(--bg-3);
+    transition: color 0.2s ease;
 	background-color: var(--bg-1);
-	padding: 0 4px;
+	padding: 0 8px;
 }
 
 #drag-region {
@@ -80,13 +95,14 @@ body {
 	cursor: pointer;
 	border-radius: 4px;
 	font-size: 14px;
+    transition: color 0.2s ease;
 }
 
 #window-controls :hover {
 	color: var(--txt-4);
 }
 
-#formats-list {
+#navbar-items {
 	display: flex;
 	list-style-type: none;
 	margin: 0;
@@ -96,8 +112,61 @@ body {
 	color: var(--bg-3);
 	text-align: center;
 	cursor: pointer;
+    transition: color 0.2s ease;
 }
 
-#formats-list :hover {
+#navbar-items :hover {
 	color: var(--txt-4);
+}
+
+/*pagesBoards*/
+
+#pages-boards {
+    display:flex;
+    flex-direction: column;
+    outline: auto;
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: var(--bg-3);
+    transition: outline-color 0.2s ease;
+    min-width:240px;
+    max-width: fit-content;
+    height:calc(100vh - 88px);
+}
+
+#pages-boards:hover {
+    outline-color:var(--txt-4);
+}
+
+#pages-boards-spacer {
+    padding: 16px;
+}
+
+#pages-boards-label {
+    position: absolute;
+	top: 64px;
+	left: 24px;
+	font-size: 16px;
+	color: var(--bg-3);
+    transition: color 0.2s ease;
+	background-color: var(--bg-1);
+	padding: 0 8px;
+}
+
+#btn-newpage {
+    color: var(--txt-3);
+    background: none;
+    align-self: auto;
+	border: none;
+	cursor: pointer;
+	font-size: 14px;
+    border-radius: 4px;
+	height: auto;
+    padding: 8px;
+    font-family: var(--font-family);
+    transition: color 0.2s ease;
+}
+
+#btn-newpage:hover {
+    color:var(--txt-1);
 }
