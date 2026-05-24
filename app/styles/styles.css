@@ -115,6 +115,10 @@ body {
 	transition: color 0.2s ease;
 }
 
+#boards-sel {
+	color: var(--txt-5);
+}
+
 #navbar-items li:hover {
 	color: var(--txt-4);
 }
@@ -174,3 +178,5 @@ body {
 #btn-newpage:hover {
 	color: var(--txt-1);
 }
+
+
