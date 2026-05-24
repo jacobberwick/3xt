@@ -115,15 +115,13 @@ body {
 	transition: color 0.2s ease;
 }
 
-
-
 #navbar-items li:hover {
 	color: var(--txt-4);
 }
 
 #navbar-items li.active {
-    color: var(--txt-5); /* your purple */
-    cursor: default;     /* removes the pointer cursor since it's not clickable */
+	color: var(--txt-5); /* your purple */
+	cursor: default; /* removes the pointer cursor since it's not clickable */
 }
 
 /*pages & boards*/
@@ -164,7 +162,7 @@ body {
 	color: var(--txt-4);
 }
 
-#btn-newpage {
+.btn-newitem {
 	color: var(--txt-3);
 	background: none;
 	align-self: auto;
@@ -178,8 +176,40 @@ body {
 	transition: color 0.2s ease;
 }
 
-#btn-newpage:hover {
+.btn-newitem:hover {
 	color: var(--txt-1);
 }
 
+.sidebar-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
 
+.note-title {
+	color: var(--txt-3);
+	background: none;
+	align-self: auto;
+	border: none;
+	cursor: pointer;
+	font-size: 14px;
+	border-radius: 4px;
+	height: auto;
+	padding: 8px;
+	font-family: var(--font-family);
+	transition: color 0.2s ease;
+}
+
+.note-delete {
+	color: var(--txt-3);
+	background: none;
+	align-self: auto;
+	border: none;
+	cursor: pointer;
+	font-size: 14px;
+	border-radius: 4px;
+	height: auto;
+	padding: 1px;
+	font-family: var(--font-family);
+	transition: color 0.2s ease;
+}
