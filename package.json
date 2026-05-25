@@ -23,6 +23,7 @@
     "electron": "^42.2.0"
   },
   "dependencies": {
+    "marked": "^18.0.4",
     "pouchdb": "^9.0.0"
   }
 }

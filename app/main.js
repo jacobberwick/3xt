@@ -1,19 +1,19 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 
-let window = null;
+let mainWindow = null;
 
-ipcMain.on("window-minimize", () => window.minimize());
+ipcMain.on("window-minimize", () => mainWindow.minimize());
 ipcMain.on("window-maximize", () => {
-	window.isMaximized() ? window.unmaximize() : window.maximize();
+	mainWindow.isMaximized() ? mainWindow.unmaximize() : mainWindow.maximize();
 });
-ipcMain.on("window-close", () => window.close());
+ipcMain.on("window-close", () => mainWindow.close());
 ipcMain.on("window-drag", (event, { deltaX, deltaY }) => {
-	const [x, y] = window.getPosition();
-	window.setPosition(x + deltaX, y + deltaY);
+	const [x, y] = mainWindow.getPosition();
+	mainWindow.setPosition(x + deltaX, y + deltaY);
 });
 
 function createWindow() {
-	window = new BrowserWindow({
+	mainWindow = new BrowserWindow({
 		width: 800,
 		height: 600,
 		webPreferences: {
@@ -22,10 +22,14 @@ function createWindow() {
 		},
 		frame: false,
 	});
-	window.loadFile("app/index.html");
+	mainWindow.loadFile("app/index.html");
 
-	window.on("closed", () => {
-		window = null;
+	mainWindow.webContents.on("did-finish-load", () => {
+		mainWindow.webContents.send("userData", app.getPath("documents"));
+	});
+
+	mainWindow.on("closed", () => {
+		mainWindow = null;
 	});
 }
 

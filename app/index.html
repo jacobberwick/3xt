@@ -41,10 +41,15 @@
 			<!--Main-->
 			<div id="main">
 				<span id="main-label">main</span>
+				<input id="note-title" type="text" value="title: ">
+
+				<!-- <textarea id="note-editor"></textarea>
+				<div id="note-preview" class="note-preview"></div> -->
 			</div>
 		</div>
 
 		<script src="../node_modules/pouchdb/dist/pouchdb.js"></script>
+		<script src="../node_modules/marked/lib/marked.umd.js"></script>
 		<script src="utils/utils.js"></script>
 		<script src="utils/database/baseDB.js"></script>
 		<script src="utils/database/notes.js"></script>

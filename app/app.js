@@ -1,5 +1,9 @@
 const { ipcRenderer } = require("electron");
 
+ipcRenderer.on("userData", (event, data) => {
+	globalThis.userDataPath = data;
+});
+
 document.getElementById("btn-minimize").addEventListener("click", () => {
 	ipcRenderer.send("window-minimize");
 });
@@ -50,23 +54,51 @@ document.getElementById("grids").addEventListener("click", () => {
 	globalThis.location.href = "grids.html";
 });
 
-const path = globalThis.location.pathname;
+const currentWindowPath = globalThis.location.pathname;
 
-if (path.includes("index.html")) {
+if (currentWindowPath.includes("index.html")) {
 	document
 		.getElementById("btn-newnote")
 		.addEventListener("click", () => newNote());
 	loadNotes();
+
+	let saveTimer = null;
+	// const noteEditor = document.getElementById("note-editor");
+
+	// noteEditor.addEventListener("input", () => {
+	// 	const notePreview = document.getElementById("note-preview");
+	// 	notePreview.innerHTML = marked.parse(noteEditor.value);
+
+	// 	clearTimeout(saveTimer);
+	// 	saveTimer = setTimeout(() => {
+	// 		if (globalThis.activeNoteId)
+	// 			saveNote(globalThis.activeNoteId, noteEditor.value);
+	// 	}, 1000);
+	// });
+
+	let titleTimer = null;
+	const editableTitle = document.getElementById("note-title");
+	editableTitle.addEventListener("input", () => {
+		clearTimeout(titleTimer);
+		titleTimer = setTimeout(async () => {
+			if (globalThis.activeNoteId) {
+				await Notes.update(globalThis.activeNoteId, {
+					title: editableTitle.value,
+				});
+				await loadNotes();
+			}
+		}, 500);
+	});
 }
 
-if (path.includes("boards.html")) {
+if (currentWindowPath.includes("boards.html")) {
 	document
 		.getElementById("btn-newboard")
 		.addEventListener("click", () => newBoard());
 	loadBoards();
 }
 
-if (path.includes("grids.html")) {
+if (currentWindowPath.includes("grids.html")) {
 	document
 		.getElementById("btn-newgrid")
 		.addEventListener("click", () => newGrid());
