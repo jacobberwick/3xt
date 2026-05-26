@@ -1,4 +1,4 @@
-async function loadBoards() {
+export async function loadBoards() {
 	const boards = await Boards.getAllDocuments();
 	const boardsList = document.getElementById("boards-list");
 
@@ -24,17 +24,17 @@ async function loadBoards() {
 	});
 }
 
-async function newBoard() {
+export async function newBoard() {
 	await Boards.create("temp");
 	await loadBoards();
 }
 
-async function saveBoard(id, title, tags = []) {
+export async function saveBoard(id, title, tags = []) {
 	await Boards.update(id, { title: title, tags: tags });
 	await loadBoards();
 }
 
-async function deleteBoard(id) {
+export async function deleteBoard(id) {
 	await Boards.delete(id);
 	await loadBoards();
 }
