@@ -279,14 +279,35 @@ body {
 }
 
 #note-title {
-	padding-top: 20px;
+	display: flex;
+	align-items: center;
+	padding: 20px 0 0 20px;
+	color: var(--txt-5);
+	font-size: 18px;
+	font-weight: bold;
+	font-family: var(--font-family);
+}
+
+#note-title-input {
+	color: var(--txt-3);
+	background: none;
+	border: none;
+	outline: none;
+	font-family: var(--font-family);
+	font-size: 18px;
+	font-weight: bold;
+	flex: 1;
+	margin-left: 8px;
+}
+
+#note-editor {
 	padding-left: 20px;
 	color: var(--txt-1);
 	background: none;
 	border: none;
 	outline: none;
 	font-family: var(--font-family);
-	font-size: 24px;
+	font-size: 14px;
 	font-weight: bold;
 	width: 100%;
 	box-sizing: border-box;
