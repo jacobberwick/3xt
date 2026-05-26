@@ -1,0 +1,103 @@
+#sidebar {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	outline: auto;
+	outline-style: solid;
+	outline-width: 1px;
+	outline-color: var(--bg-3);
+	transition: outline-color 0.2s ease;
+	min-width: 240px;
+	max-width: fit-content;
+	height: 100%;
+}
+
+#sidebar:hover {
+	outline-color: var(--txt-4);
+}
+
+#sidebar-spacer {
+	padding: 16px;
+}
+
+#sidebar-label {
+	position: absolute;
+	top: -10px;
+	left: 16px;
+	font-size: 16px;
+	color: var(--bg-3);
+	transition: color 0.2s ease;
+	background-color: var(--bg-1);
+	padding: 0 8px;
+}
+
+#sidebar:hover #sidebar-label {
+	color: var(--txt-4);
+}
+
+.btn-newitem {
+	color: var(--txt-3);
+	background: none;
+	align-self: auto;
+	border: none;
+	cursor: pointer;
+	font-size: 14px;
+	border-radius: 4px;
+	height: auto;
+	padding: 8px;
+	padding-left: 16px;
+	font-family: var(--font-family);
+	transition: color 0.2s ease;
+}
+
+.btn-newitem:hover {
+	color: var(--txt-1);
+}
+
+.sidebar-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.item-title {
+	color: var(--bg-3);
+	background: none;
+	align-self: auto;
+	border: none;
+	cursor: pointer;
+	font-size: 14px;
+	border-radius: 0px;
+	height: auto;
+	padding-right: 8px;
+	padding-left: 0px;
+	font-family: var(--font-family);
+	transition: color 0.2s ease;
+}
+
+.item-delete {
+	color: var(--bg-3);
+	background: none;
+	align-self: auto;
+	border: none;
+	cursor: pointer;
+	font-size: 14px;
+	border-radius: 4px;
+	height: auto;
+	padding: 1px;
+	font-family: var(--font-family);
+	transition: color 0.2s ease;
+}
+
+.item-title:hover {
+	color: var(--txt-4);
+}
+
+.item-delete:hover {
+	color: var(--txt-4);
+}
+
+.item-title.active {
+	color: var(--txt-5);
+	cursor: default;
+}

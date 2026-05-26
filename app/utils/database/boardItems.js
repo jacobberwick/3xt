@@ -1,3 +1,6 @@
+import { now, generateId } from "../helpers.js";
+import { BaseDB } from "./baseDB.js";
+
 class BoardItemsDB extends BaseDB {
 	constructor() {
 		super("3xt_boardItems", "boardItem");
@@ -31,8 +34,8 @@ class BoardItemsDB extends BaseDB {
 
 	async getBoardItems(id) {
 		const allBoardItems = await this.getAllDocuments();
-		return allBoardItems.filter(boardItem => boardItem.board_id === id);
+		return allBoardItems.filter((boardItem) => boardItem.board_id === id);
 	}
 }
 
-const BoardItems = new BoardItemsDB();
+export const BoardItems = new BoardItemsDB();

@@ -1,15 +1,17 @@
-const fs = require("node:fs");
-const path = require("node:path");
+import { Notes } from "../database/notes.js";
+import { now } from "../helpers.js";
+import fs from "../fileSystem.js";
 
-async function loadNotes() {
+export async function loadNotes() {
+	console.log("loadNotes called");
 	const notes = await Notes.getAllDocuments();
+	console.log("notes:", notes);
+	console.log("first note file_path:", notes[0]?.file_path);
 	const notesList = document.getElementById("notes-list");
-
 	notesList.innerHTML = "";
 
-	notes.forEach((note) => {
+	for (const note of notes) {
 		const noteElement = document.createElement("li");
-
 		const titleButton = document.createElement("button");
 		titleButton.textContent = "> " + note.title;
 		titleButton.className = "item-title";
@@ -23,54 +25,73 @@ async function loadNotes() {
 		noteElement.appendChild(titleButton);
 		noteElement.appendChild(deleteButton);
 		notesList.appendChild(noteElement);
-	});
+	}
 }
 
-async function newNote() {
-	const notesFolder = path.join(globalThis.userDataPath, "3xt_notes");
-	fs.mkdirSync(notesFolder, { recursive: true });
-	const newNoteFile = path.join(
-		notesFolder,
-		now().replaceAll(":", "-").replaceAll(".", "-") + ".md",
-	);
-	fs.writeFileSync(newNoteFile, "");
+export async function newNote() {
+	const notesFolder = `${globalThis.userDataPath}/3xt_notes`;
+	await fs.createDir(notesFolder);
+
+	const newNoteFile = `${notesFolder}/${now().replaceAll(":", "-").replaceAll(".", "-")}.md`;
+	await fs.writeFile(newNoteFile, "example text");
 
 	await Notes.create("untitled", newNoteFile);
 	await loadNotes();
 }
 
-async function openNote(id) {
+export async function openNote(id) {
 	globalThis.activeNoteId = id;
 	const activeNote = await Notes.getDocument(id);
-	const activeNoteContent = fs.readFileSync(activeNote.file_path, "utf-8");
+	const activeNoteContent = await fs.readFile(activeNote.file_path);
 
-	const noteTitle = document.getElementById("note-title");
-	noteTitle.value += activeNote.title;
-
-	// const textArea = document.getElementById("note-editor");
-	// textArea.value = activeNoteContent;
-
-	// const notePreview = document.getElementById("note-preview");
-	// notePreview.innerHTML = marked.parse(activeNoteContent);
+	const noteTitle = document.getElementById("note-title-input");
+	noteTitle.value = activeNote.title;
 }
 
-async function saveNote(id, newContent) {
+export async function saveNote(id, newContent) {
 	const activeNote = await Notes.getDocument(id);
-	fs.writeFileSync(activeNote.file_path, newContent);
+	await fs.writeFile(activeNote.file_path, newContent);
 }
 
-async function deleteNote(id) {
+export async function deleteNote(id) {
 	const activeNote = await Notes.getDocument(id);
 	const filePath = activeNote.file_path;
 	await Notes.delete(id);
-	fs.unlinkSync(filePath);
+	await fs.deleteFile(filePath);
 
 	if (globalThis.activeNoteId === id) {
 		globalThis.activeNoteId = null;
-		document.getElementById("note-title").value = "";
-		// document.getElementById("note-editor").value = "";
-		// document.getElementById("note-preview").innerHTML = "";
+		document.getElementById("note-title-input").value = "";
 	}
 
 	await loadNotes();
+}
+
+export async function syncNotes() {
+	const exists = await fs.fileExists(note.file_path);
+	if (!exists) {
+		await Notes.delete(note._id);
+	}
+}
+
+// ─── App Window ───────────────────────────────────────────────────
+
+export function initNotesPage() {
+	document
+		.getElementById("btn-newnote")
+		.addEventListener("click", () => newNote());
+
+	let titleTimer = null;
+	const editableTitle = document.getElementById("note-title-input");
+	editableTitle.addEventListener("input", () => {
+		clearTimeout(titleTimer);
+		titleTimer = setTimeout(async () => {
+			if (globalThis.activeNoteId) {
+				await Notes.update(globalThis.activeNoteId, {
+					title: editableTitle.value,
+				});
+				loadNotes();
+			}
+		}, 500);
+	});
 }
