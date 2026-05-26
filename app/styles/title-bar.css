@@ -1,0 +1,90 @@
+#title-bar {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 48px;
+	background-color: var(--bg-1);
+	outline: auto;
+	outline-style: solid;
+	outline-width: 1px;
+	outline-color: var(--bg-3);
+	padding: 0 16px;
+	transition: outline-color 0.2s ease;
+	user-select: none;
+	margin-bottom: 16px;
+}
+
+#title-bar:hover {
+	outline-color: var(--txt-4);
+}
+
+#title-bar:hover #title-bar-label {
+	color: var(--txt-4);
+}
+
+#title-bar-label {
+	position: absolute;
+	top: -12px;
+	left: 16px;
+	font-size: 16px;
+	color: var(--bg-3);
+	transition: color 0.2s ease;
+	background-color: var(--bg-1);
+	padding: 0 8px;
+}
+
+#drag-region {
+	flex: 1;
+	height: 100%;
+	width: 50%;
+}
+
+#title-bar-spacer {
+	flex: 1;
+	height: 100%;
+}
+
+#window-controls {
+	display: flex;
+	gap: 4px;
+}
+
+#window-controls button {
+	align-self: auto;
+	width: 24px;
+	height: 24px;
+	border: none;
+	background: none;
+	color: var(--bg-3);
+	cursor: pointer;
+	border-radius: 4px;
+	font-size: 14px;
+	transition: color 0.2s ease;
+}
+
+#window-controls button:hover {
+	color: var(--txt-4);
+}
+
+#navbar-items {
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	gap: 8px;
+	float: left;
+	color: var(--bg-3);
+	text-align: center;
+	cursor: pointer;
+	transition: color 0.2s ease;
+}
+
+#navbar-items li:hover {
+	color: var(--txt-4);
+}
+
+#navbar-items li.active {
+	color: var(--txt-5);
+	cursor: default;
+}

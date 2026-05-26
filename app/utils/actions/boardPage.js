@@ -1,3 +1,5 @@
+import { Boards } from "../database/boards";
+
 export async function loadBoards() {
 	const boards = await Boards.getAllDocuments();
 	const boardsList = document.getElementById("boards-list");
@@ -37,4 +39,13 @@ export async function saveBoard(id, title, tags = []) {
 export async function deleteBoard(id) {
 	await Boards.delete(id);
 	await loadBoards();
+}
+
+// ─── App Window ───────────────────────────────────────────────────
+
+export function initBoardsPage() {
+	document
+		.getElementById("btn-newboard")
+		.addEventListener("click", () => newBoard());
+	loadBoards();
 }

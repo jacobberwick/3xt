@@ -1,29 +1,35 @@
 {
-  "name": "3xt",
-  "version": "1.0.0",
-  "description": "Open-source all-in-one organization, notebook, productivity app",
-  "main": "app/main.js",
-  "scripts": {
-    "start": "electron .",
-    "dev": "npx electronmon --trace-warnings ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jacobberwick/3xt.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/jacobberwick/3xt/issues"
-  },
-  "homepage": "https://github.com/jacobberwick/3xt#readme",
-  "devDependencies": {
-    "electron": "^42.2.0"
-  },
-  "dependencies": {
-    "marked": "^18.0.4",
-    "pouchdb": "^9.0.0"
-  }
+	"name": "3xt",
+	"version": "1.0.0",
+	"description": "Open-source all-in-one organization, notebook, productivity app",
+	"main": "out/main/index.js",
+	"scripts": {
+		"dev": "electron-vite dev --watch",
+		"build": "electron-vite build",
+		"start": "electron-vite preview"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jacobberwick/3xt.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/jacobberwick/3xt/issues"
+	},
+	"homepage": "https://github.com/jacobberwick/3xt#readme",
+	"devDependencies": {
+		"electron": "^42.2.0",
+		"electron-builder": "^26.8.1",
+		"electron-vite": "^5.0.0"
+	},
+	"dependencies": {
+		"@codemirror/lang-markdown": "^6.5.0",
+		"@codemirror/language-data": "^6.5.2",
+		"@electron-toolkit/utils": "^4.0.0",
+		"codemirror": "^6.0.2",
+		"marked": "^18.0.4",
+		"pouchdb-browser": "^9.0.0"
+	}
 }

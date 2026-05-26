@@ -1,3 +1,5 @@
+import { Grids } from "../database/grids";
+
 async function loadGrids() {
 	const grids = await Grids.getAllDocuments();
 	const gridsList = document.getElementById("grids-list");
@@ -37,4 +39,13 @@ async function saveGrid(id, title, tags = []) {
 async function deleteGrid(id) {
 	await Grids.delete(id);
 	await loadGrids();
+}
+
+// ─── App Window ───────────────────────────────────────────────────
+
+export function initGridsPage() {
+	document
+		.getElementById("btn-newgrid")
+		.addEventListener("click", () => newGrid());
+	loadGrids();
 }
