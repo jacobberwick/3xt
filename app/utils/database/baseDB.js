@@ -1,48 +1,47 @@
-import * as PouchDBModule from "pouchdb-browser";
-const PouchDB = PouchDBModule.default || PouchDBModule;
+import Dexie from "dexie";
 import { now } from "../helpers.js";
 
 export class BaseDB {
 	#db;
 	#prefix;
+	#table;
 
 	constructor(name, prefix) {
-		this.#db = new PouchDB(name);
+		this.#db = new Dexie(name);
 		this.#prefix = prefix;
+		this.#db.version(1).stores({
+			docs: "_id"
+		});
+		this.#table = this.#db.docs;
 	}
 
 	async getDocument(id) {
-		return await this.#db.get(id);
+		return await this.#table.get(id);
 	}
 
 	async getAllDocuments() {
-		const result = await this.#db.allDocs({
-			include_docs: true,
-			startkey: `${this.#prefix}::`,
-			endkey: `${this.#prefix}::\uffff`,
-		});
-		return result.rows.map((row) => row.doc);
+		return await this.#table
+			.where("_id")
+			.startsWith(`${this.#prefix}::`)
+			.toArray();
 	}
 
 	async add(doc) {
-		return await this.#db.put(doc);
+		return await this.#table.put(doc);
 	}
 
 	async update(id, changes) {
 		const doc = await this.getDocument(id);
 		const updated = { ...doc, ...changes, updated_at: now() };
 
-		return await this.#db.put(updated);
+		return await this.#table.put(updated);
 	}
 
 	async delete(id) {
-		const doc = await this.getDocument(id);
-		return await this.#db.remove(doc);
+		return await this.#table.delete(id);
 	}
 
 	async bulkDelete(ids) {
-		const docs = await Promise.all(ids.map((id) => this.getDocument(id)));
-		const deletedDocs = docs.map((doc) => ({ ...doc, _deleted: true }));
-		return await this.#db.bulkDocs(deletedDocs);
+		return await this.#table.bulkDelete(ids);
 	}
 }

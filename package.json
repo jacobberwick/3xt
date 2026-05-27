@@ -29,7 +29,6 @@
 		"@codemirror/language-data": "^6.5.2",
 		"@electron-toolkit/utils": "^4.0.0",
 		"codemirror": "^6.0.2",
-		"marked": "^18.0.4",
-		"pouchdb-browser": "^9.0.0"
+		"dexie": "^4.4.2"
 	}
 }
