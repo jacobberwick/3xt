@@ -1,5 +1,5 @@
-import Dexie from "dexie";
 import { now } from "../helpers.js";
+import fs from "../fileSystem.js";
 
 export class BaseDB {
 	#db;
