@@ -1,7 +1,7 @@
 import {
-	initWindowControls,
-	initWindowDrag,
-	initWindowNavigation,
+    initWindowControls,
+    initWindowDrag,
+    initWindowNavigation,
 } from "./utils/appActions.js";
 import { initBoardsPage } from "./utils/actions/boardPage.js";
 import { initGridsPage } from "./utils/actions/gridsPage.js";
@@ -12,17 +12,18 @@ initWindowDrag();
 initWindowNavigation();
 
 const currentWindowPath = globalThis.location.pathname;
+const isNotesPage = currentWindowPath.includes("index.html") || currentWindowPath === "/";
+const isBoardsPage = currentWindowPath.includes("boards.html");
+const isGridsPage = currentWindowPath.includes("grids.html");
 
-if (currentWindowPath.includes("index.html")) {
-	loadNotes(); // call directly here for instant sidebar
+if (isNotesPage) {
+    loadNotes();
 }
 
 globalThis.electronAPI.on("userDocuments", (data) => {
-	globalThis.userDataPath = data;
+    globalThis.userDataPath = data;
 
-	if (currentWindowPath.includes("index.html")) initNotesPage();
-
-	if (currentWindowPath.includes("boards.html")) initBoardsPage();
-
-	if (currentWindowPath.includes("grids.html")) initGridsPage();
+    if (isNotesPage) initNotesPage();
+    if (isBoardsPage) initBoardsPage();
+    if (isGridsPage) initGridsPage();
 });
