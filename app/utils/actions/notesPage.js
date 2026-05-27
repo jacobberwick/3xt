@@ -4,10 +4,7 @@ import fs from "../fileSystem.js";
 import { initEditor, setEditorContent } from "../editor.js";
 
 export async function loadNotes() {
-	console.log("loadNotes called");
 	const notes = await Notes.getAllDocuments();
-	console.log("notes:", notes);
-	console.log("first note file_path:", notes[0]?.file_path);
 	const notesList = document.getElementById("notes-list");
 	notesList.innerHTML = "";
 
@@ -66,6 +63,7 @@ export async function saveNote(id, newContent) {
 export async function deleteNote(id) {
 	const activeNote = await Notes.getDocument(id);
 	const filePath = activeNote.file_path;
+
 	await Notes.delete(id);
 	await fs.deleteFile(filePath);
 
