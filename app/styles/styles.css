@@ -1,45 +1,5 @@
-@import './base.css';
-@import './title-bar.css';
-@import './sidebar.css';
-@import './notes-page.css';
-
-.cm-cursor, .cm-dropCursor {
-    border-left-color: var(--txt-5) !important;
-}
-
-.cm-editor {
-    height: 100% !important;
-    cursor: text !important;
-}
-
-.cm-scroller {
-    overflow: auto !important;
-    cursor: text !important;
-}
-
-.cm-content {
-    min-height: 100% !important;
-    cursor: text !important;
-}
-
-.cm-cursor {
-    border-left: 2px solid #c6a3f2 !important;
-}
-
-/* Custom scrollbar */
-.cm-scroller::-webkit-scrollbar {
-    width: 8px;
-}
-
-.cm-scroller::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.cm-scroller::-webkit-scrollbar-thumb {
-    background: var(--bg-2);
-    border-radius: 4px;
-}
-
-.cm-scroller::-webkit-scrollbar-thumb:hover {
-    background: var(--txt-5);
-}
+@import "./base.css";
+@import "./title-bar.css";
+@import "./sidebar.css";
+@import "./notes-page.css";
+@import "./notes-editor.css";

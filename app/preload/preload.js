@@ -12,4 +12,6 @@ contextBridge.exposeInMainWorld("electronAPI", {
 	createDir: (dirPath) => ipcRenderer.invoke("fs:createDir", dirPath),
 	getPath: (name) => ipcRenderer.invoke("fs:getPath", name),
 	fileExists: (filePath) => ipcRenderer.invoke("fs:fileExists", filePath),
+	renameFile: (oldPath, newPath) =>
+		ipcRenderer.invoke("fs:renameFile", oldPath, newPath),
 });

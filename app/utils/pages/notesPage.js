@@ -1,7 +1,7 @@
 import { Notes } from "../database/notes.js";
 import { now } from "../helpers.js";
 import fs from "../fileSystem.js";
-import { initEditor, setEditorContent } from "../editor.js";
+import { initEditor, setEditorContent } from "../note-editor/editor.js";
 
 export async function loadNotes() {
 	const notes = await Notes.getAllDocuments();
@@ -38,21 +38,18 @@ export async function newNote() {
 }
 
 export async function openNote(id) {
-    globalThis.activeNoteId = id;
-    const activeNote = await Notes.getDocument(id);
-    const activeNoteContent = await fs.readFile(activeNote.file_path);
+	globalThis.activeNoteId = id;
+	const activeNote = await Notes.getDocument(id);
+	const activeNoteContent = await fs.readFile(activeNote.file_path);
 
-    document.getElementById("note-title-input").value = activeNote.title;
-    document.getElementById("main-label").textContent = activeNote.title;
+	document.getElementById("note-title-input").value = activeNote.title;
+	document.getElementById("main-label").textContent = activeNote.title;
 
-    // Initialize editor with content and auto-save on change
-    initEditor(activeNoteContent, async (newContent) => {
-        await saveNote(id, newContent);
-    });
+	// Initialize editor with content and auto-save on change
 	initEditor(activeNoteContent, async (newContent) => {
-        await saveNote(id, newContent);
-    });
-    setNoteOpen(true);
+		await saveNote(id, newContent);
+	});
+	setNoteOpen(true);
 }
 
 export async function saveNote(id, newContent) {
@@ -72,8 +69,8 @@ export async function deleteNote(id) {
 		document.getElementById("note-title-input").value = "";
 	}
 
+	setNoteOpen(false);
 	await loadNotes();
-    if (globalThis.activeNoteId === null) setNoteOpen(false);
 }
 
 export async function syncNotes() {
@@ -86,36 +83,59 @@ export async function syncNotes() {
 // ─── App Window ───────────────────────────────────────────────────
 
 export function initNotesPage() {
-    document
-        .getElementById("btn-newnote")
-        .addEventListener("click", () => newNote());
+	document
+		.getElementById("btn-newnote-sidebar")
+		.addEventListener("click", () => newNote());
 
-    document
-        .getElementById("btn-newnote-ph")
-        .addEventListener("click", () => newNote()); // 👈 add this
+	document
+		.getElementById("btn-newnote-main")
+		.addEventListener("click", () => newNote());
 
-    let titleTimer = null;
+	let titleTimer = null;
 	const editableTitle = document.getElementById("note-title-input");
 	editableTitle.addEventListener("input", () => {
-    clearTimeout(titleTimer);
-    titleTimer = setTimeout(async () => {
-        if (globalThis.activeNoteId) {
-            await Notes.update(globalThis.activeNoteId, {
-                title: editableTitle.value,
-            });
-            document.getElementById("main-label").textContent = editableTitle.value; // 👈 add this
-            loadNotes();
-        }
-    }, 500);
-});
+		clearTimeout(titleTimer);
+		titleTimer = setTimeout(async () => {
+			if (globalThis.activeNoteId) {
+				const activeNote = await Notes.getDocument(globalThis.activeNoteId);
+
+				const dir = activeNote.file_path.substring(
+					0,
+					activeNote.file_path.lastIndexOf("/"),
+				);
+				const newFileName =
+					editableTitle.value
+						.trim()
+						.replace(/[<>:"/\\|?*]/g, "")
+						.replace(/\s+/g, "-") || "untitled";
+				const newFilePath = `${dir}/${newFileName}.md`;
+
+				await fs.renameFile(activeNote.file_path, newFilePath);
+
+				await Notes.update(globalThis.activeNoteId, {
+					title: editableTitle.value,
+					file_path: newFilePath,
+				});
+
+				document.getElementById("main-label").textContent = editableTitle.value;
+				await loadNotes();
+			}
+		}, 500);
+	});
 
 	setNoteOpen(false);
 }
 
-// ─── Place Holder ───────────────────────────────────────────────────
+// ─── Placeholder ───────────────────────────────────────────────────
 
 function setNoteOpen(isOpen) {
-    document.getElementById("note-placeholder").style.display = isOpen ? "none" : "flex";
-    document.getElementById("note-title").style.display = isOpen ? "flex" : "none";
-    document.getElementById("note-editor").style.display = isOpen ? "block" : "none";
+	document.getElementById("note-placeholder").style.display = isOpen
+		? "none"
+		: "flex";
+	document.getElementById("note-title").style.display = isOpen
+		? "flex"
+		: "none";
+	document.getElementById("note-editor").style.display = isOpen
+		? "block"
+		: "none";
 }

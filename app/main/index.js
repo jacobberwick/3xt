@@ -7,6 +7,14 @@ import { initFileHandlers } from "./fileHandlers.js";
 let mainWindow = null;
 initFileHandlers();
 
+
+
+/**
+ * Creates the main BrowserWindow and loads the renderer.
+ * In development, loads from the Vite dev server URL.
+ * In production, loads the built index.html from disk.
+ * Sends the user's Documents path to the renderer once the DOM is ready.
+ */
 function createWindow() {
 	mainWindow = new BrowserWindow({
 		width: 800,
