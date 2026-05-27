@@ -1,4 +1,4 @@
-# 3xt (wip name)
+# 3xt
 
 ### 3xt seeks to be an open-source all-in-one organization, notebook, productivity app.
 
