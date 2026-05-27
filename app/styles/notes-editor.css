@@ -1,0 +1,100 @@
+.cm-rendered-h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--txt-1);
+    margin: 0;
+}
+
+.cm-rendered-h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--txt-1);
+    margin: 0;
+}
+
+.cm-rendered-h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--txt-1);
+    margin: 0;
+}
+
+.cm-rendered-bold {
+    font-weight: bold;
+    color: var(--txt-1);
+}
+
+.cm-rendered-italic {
+    font-style: italic;
+    color: var(--txt-1);
+}
+
+.cm-rendered-strikethrough {
+	text-decoration: line-through;
+    color: var(--txt-3);
+}
+
+.cm-rendered-bullet {
+    color: var(--txt-1);
+}
+
+.cm-rendered-bullet-marker {
+    color: var(--txt-5);
+    padding-right: 4px;
+}
+
+.cm-rendered-inlinecode {
+	font-family: var(--font-family);
+	padding: 1px 4px;
+	background-color: var(--bg-2);
+	color:var(--txt-4);
+	font-size: 16px;
+}
+
+.cm-rendered-hr {
+    border: none;
+    border-top: 1px solid var(--bg-3);
+    margin: 8px 0;
+}
+
+
+.cm-cursor, .cm-dropCursor {
+    border-left-color: var(--txt-5) !important;
+}
+
+.cm-editor {
+    height: 100% !important;
+    cursor: text !important;
+}
+
+.cm-scroller {
+    overflow: auto !important;
+    cursor: text !important;
+}
+
+.cm-content {
+    min-height: 100% !important;
+    cursor: text !important;
+}
+
+.cm-cursor {
+    border-left: 2px solid #c6a3f2 !important;
+}
+
+/* Custom scrollbar */
+.cm-scroller::-webkit-scrollbar {
+    width: 8px;
+}
+
+.cm-scroller::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.cm-scroller::-webkit-scrollbar-thumb {
+    background: var(--bg-2);
+    border-radius: 4px;
+}
+
+.cm-scroller::-webkit-scrollbar-thumb:hover {
+    background: var(--txt-5);
+}

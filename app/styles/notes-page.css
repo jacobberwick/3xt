@@ -21,39 +21,39 @@
 }
 
 #note-editor {
-    padding-left: 20px;
-    color: var(--txt-1);
-    background: none;
-    border: none;
-    outline: none;
-    font-family: var(--font-family);
-    font-size: 18px;
-    width: 100%;
-    flex: 1;
-    height: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
+	padding-left: 20px;
+	color: var(--txt-1);
+	background: none;
+	border: none;
+	outline: none;
+	font-family: var(--font-family);
+	font-size: 18px;
+	width: 100%;
+	flex: 1;
+	height: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
 }
 
 #note-editor .cm-content {
-    caret-color:var(--txt-4);
+	caret-color: var(--txt-4);
 }
 
 #note-editor .cm-editor.cm-focused {
-    outline: none;
+	outline: none;
 }
 
-/* Main placeholder */
+/* Main Placeholder */
 
 #note-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    color: var(--txt-5);
-    font-size: 16px;
-    text-align: center;
-    padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	color: var(--txt-5);
+	font-size: 16px;
+	text-align: center;
+	padding: 20px;
 }
 
 #btn-newnote-ph {
@@ -71,66 +71,5 @@
 }
 
 #btn-newnote-ph:hover {
-    color: var(--txt-4);
-}
-
-/* Markdown rendering */
-
-.cm-rendered-h1 {
-    font-size: 2em;
-    font-weight: bold;
-    color: var(--txt-1);
-    margin: 0;
-}
-
-.cm-rendered-h2 {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: var(--txt-1);
-    margin: 0;
-}
-
-.cm-rendered-h3 {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: var(--txt-1);
-    margin: 0;
-}
-
-.cm-rendered-bold {
-    font-weight: bold;
-    color: var(--txt-1);
-}
-
-.cm-rendered-italic {
-    font-style: italic;
-    color: var(--txt-1);
-}
-
-.cm-rendered-strikethrough {
-	text-decoration: line-through;
-    color: var(--txt-3);
-}
-
-.cm-rendered-bullet {
-    color: var(--txt-1);
-}
-
-.cm-rendered-bullet-marker {
-    color: var(--txt-5);
-    padding-right: 4px;
-}
-
-.cm-rendered-inlinecode {
-	font-family: var(--font-family);
-	padding: 1px 4px;
-	background-color: var(--bg-2);
-	color:var(--txt-4);
-	font-size: 16px;
-}
-
-.cm-rendered-hr {
-    border: none;
-    border-top: 1px solid var(--bg-3);
-    margin: 8px 0;
+	color: var(--txt-4);
 }

@@ -3,9 +3,9 @@ import {
     initWindowDrag,
     initWindowNavigation,
 } from "./utils/appActions.js";
-import { initBoardsPage } from "./utils/actions/boardPage.js";
-import { initGridsPage } from "./utils/actions/gridsPage.js";
-import { initNotesPage, loadNotes } from "./utils/actions/notesPage.js";
+import { initBoardsPage } from "./utils/pages/boardPage.js";
+import { initGridsPage } from "./utils/pages/gridsPage.js";
+import { initNotesPage, loadNotes } from "./utils/pages/notesPage.js";
 
 
 initWindowControls();

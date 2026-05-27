@@ -31,7 +31,6 @@ export function initEditor(initialContent = "", onChange = null) {
                     }
                 }),
     ],
-        
     });
 
     editor = new EditorView({

@@ -1,5 +1,4 @@
 node_modules/
 electron-install-log.txt
-app/utils/schema.js
 out/
 dist/
