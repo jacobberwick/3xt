@@ -5,14 +5,14 @@
 3xt allows you to work within three distinct formats:
 - **Note Pages**
 - **Boards**
-- **Widget Pages**
+- **Grid Pages**
 
 ### Notes Pages
 Note pages or notes allow you to take notes, make documents, plan projects, etc.
 Notes are saved as markdown files (.md) and use our modified markdown syntax for formatting.
 
 **Links**<br>
-Links allow you to link to different note pages, boards (see Boards), widget pages (see Widget Pages), specific sections of note pages, board items (see Board Items), or a specific widget in a widget page (see Widgets), as well as links to websites.
+Links allow you to link to different note pages, boards (see Boards), grid pages (see Widget Grid), specific sections of note pages, board items (see Board Items), or a specific widget in a widget page (see Widgets), as well as links to websites.
 
 **Tags**<br>
 Notes can have different tags (see Tags) attached to them, and be sorted by it's tags.
@@ -33,8 +33,8 @@ Links allow you to link to different board items, note pages, boards, widget pag
 **Tags**<br>
 Both items and boards can have tags (see Tags) attached to them, and be sorted by it's tags.
 
-### Widgets Pages
-Widget pages allow you to construct a bento grid of different widgets (see Widgets).
+### Grid Pages
+Grid pages allow you to construct a bento grid of different widgets (see Widgets).
 
 **Widgets**<br>
 Widgets are components that preform a specific role.
