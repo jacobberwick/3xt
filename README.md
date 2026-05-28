@@ -66,6 +66,8 @@ Widgets are components that preform a specific role.
 - Pomodoro timer
 	- 25 minute focus intervals.
 	- 5 minute breaks.
+ - Line widget
+	- Draw lines or arrows to connect different widgets.
 
 ### Tags
 To help you stay organized 3xt allows you to add tags to all pages, boards, and board items.
