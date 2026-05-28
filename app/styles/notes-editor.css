@@ -81,20 +81,3 @@
     border-left: 2px solid #c6a3f2 !important;
 }
 
-/* Custom scrollbar */
-.cm-scroller::-webkit-scrollbar {
-    width: 8px;
-}
-
-.cm-scroller::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.cm-scroller::-webkit-scrollbar-thumb {
-    background: var(--bg-2);
-    border-radius: 4px;
-}
-
-.cm-scroller::-webkit-scrollbar-thumb:hover {
-    background: var(--txt-5);
-}

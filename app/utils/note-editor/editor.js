@@ -12,10 +12,10 @@ export function initEditor(initialContent = "", onChange = null) {
     }
 
     const customTheme = EditorView.baseTheme({
-        "&": { height: "100%", cursor: "text" },
+        "&": { height: "100%", Width: "100%" , cursor: "text" },
         ".cm-scroller": { overflow: "auto" },
         ".cm-content": { minHeight: "100%", cursor: "text" },
-        ".cm-cursor, .cm-dropCursor": { borderLeftColor: "#c6a3f2 !important" },
+        ".cm-cursor, .cm-dropCursor": { borderLeftColor: "var(--txt-1) !important" },
     });
 
     const state = EditorState.create({
