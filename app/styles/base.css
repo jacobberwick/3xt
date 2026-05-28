@@ -72,3 +72,32 @@ body {
 #main:focus-within #main-label {
     color: var(--txt-4);
 }
+
+#note-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	color: var(--txt-5);
+	font-size: 16px;
+	text-align: center;
+	padding: 20px;
+}
+
+#btn-newnote-main {
+	color: var(--txt-3);
+	background: none;
+	align-self: auto;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+	border-radius: 0px;
+	height: auto;
+	padding: 8px;
+	font-family: var(--font-family);
+	transition: color 0.2s ease;
+}
+
+#btn-newnote-main:hover {
+	color: var(--txt-4);
+}
