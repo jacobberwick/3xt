@@ -11,8 +11,8 @@ export function initEditor(initialContent = "", onChange = null) {
         editor.destroy();
     }
 
-    const customTheme = EditorView.baseTheme({
-        "&": { height: "100%", Width: "100%" , cursor: "text" },
+    const customTheme = EditorView.theme({
+        "&": { height: "100%", width: "100%" , cursor: "text"},
         ".cm-scroller": { overflow: "auto" },
         ".cm-content": { minHeight: "100%", cursor: "text" },
         ".cm-cursor, .cm-dropCursor": { borderLeftColor: "var(--txt-1) !important" },

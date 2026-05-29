@@ -65,6 +65,9 @@
 .cm-editor {
     height: 100% !important;
     cursor: text !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-right: 16px;
 }
 
 .cm-scroller {
@@ -75,6 +78,13 @@
 .cm-content {
     min-height: 100% !important;
     cursor: text !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    overflow-x: visible !important;
+    white-space: pre-wrap !important;
+    padding-right: 16px !important;
+    padding-bottom: 16px !important;
 }
 
 .cm-cursor {

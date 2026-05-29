@@ -47,7 +47,7 @@ class BoldWidget extends WidgetType {
 class BulletWidget extends WidgetType {
 	toDOM() {
 		const el = document.createElement("span");
-		el.textContent = "• ";
+		el.textContent = "― ";
 		el.className = "cm-rendered-bullet-marker";
 		return el;
 	}

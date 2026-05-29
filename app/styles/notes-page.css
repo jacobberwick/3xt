@@ -37,6 +37,8 @@
 
 #note-editor .cm-content {
 	caret-color: var(--txt-4);
+	width: 100%;
+	flex: 1;
 }
 
 #note-editor .cm-editor.cm-focused {
