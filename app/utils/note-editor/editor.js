@@ -1,8 +1,10 @@
 import { EditorView, keymap } from "@codemirror/view";
 import { EditorState } from "@codemirror/state";
 import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
-import { defaultKeymap } from "@codemirror/commands";
+import { defaultKeymap, indentWithTab } from "@codemirror/commands" ;
 import { markdownRenderPlugin } from "./markdownDecorations.js";
+
+const combinedKeymap = [...defaultKeymap, indentWithTab];
 
 let editor = null;
 
@@ -22,9 +24,9 @@ export function initEditor(initialContent = "", onChange = null) {
         doc: initialContent,
             extensions: [
                 markdown({ base: markdownLanguage }),
-                keymap.of(defaultKeymap),
+                keymap.of(combinedKeymap),
                 customTheme,
-                markdownRenderPlugin, // 👈 add this
+                markdownRenderPlugin,
                 EditorView.updateListener.of((update) => {
                     if (update.docChanged && onChange) {
                         onChange(update.state.doc.toString());

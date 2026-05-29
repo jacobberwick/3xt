@@ -44,11 +44,35 @@ class BoldWidget extends WidgetType {
 	}
 }
 
+class taskListWidget extends WidgetType {
+	constructor(indentLevel, isChecked) {
+		super();
+		this.isChecked = isChecked;
+		this.indentLevel = indentLevel;
+	}
+	
+	
+	toDOM() {
+		const el = document.createElement("input");
+		el.type = "checkbox";
+		el.style.paddingLeft = `${this.indentLevel*2}em`;
+		el.checked = this.isChecked;
+		return el;
+	}
+}
+
 class BulletWidget extends WidgetType {
+	constructor(level) {
+		super();
+		this.level = level;
+	}
+	
+	
 	toDOM() {
 		const el = document.createElement("span");
 		el.textContent = "― ";
-		el.className = "cm-rendered-bullet-marker";
+		el.className = `cm-rendered-bullet-marker`;
+		el.style.paddingLeft = `${this.level*2}em`;
 		return el;
 	}
 }
@@ -211,17 +235,40 @@ export const markdownRenderPlugin = ViewPlugin.fromClass(
 							builder.add(textEnd, matchEnd, Decoration.replace({}));
 						}
 
-						// Render bullet lists - hide the "- " prefix, add bullet styling
-						const bulletMatch = lineText.match(/^(\s*)-\s+/);
-						if (bulletMatch) {
-							const prefixEnd = lineFrom + bulletMatch[0].length;
-
-							// Replace "- " with "• "
+						const checkedMatch = lineText.match(/^(\s*)-\s+\[( |x)\]\s+/);
+						if (checkedMatch) {
+							console.log(checkedMatch[0])
+							const prefixEnd = lineFrom + checkedMatch[0].length;
+							const indentLevel = checkedMatch[1].length/2;
+							const isChecked = checkedMatch[2] === "x";
+							// Replace "- " with "― "
 							builder.add(
 								lineFrom,
 								prefixEnd,
 								Decoration.replace({
-									widget: new BulletWidget(),
+									widget: new taskListWidget(indentLevel, isChecked),
+								}),
+							);
+
+							// Style the list item text
+							builder.add(
+								prefixEnd,
+								lineTo,
+								Decoration.mark({ class: "cm-rendered-task-list" }),
+							);
+						}
+
+												// Render bullet lists - hide the "- " prefix, add bullet styling
+						const bulletMatch = lineText.match(/^(\s*)-\s+/);
+						if (bulletMatch && !checkedMatch) {
+							const prefixEnd = lineFrom + bulletMatch[0].length;
+							const indentLevel = bulletMatch[1].length/2;
+							// Replace "- " with "― "
+							builder.add(
+								lineFrom,
+								prefixEnd,
+								Decoration.replace({
+									widget: new BulletWidget(indentLevel),
 								}),
 							);
 
@@ -236,10 +283,12 @@ export const markdownRenderPlugin = ViewPlugin.fromClass(
 
 					pos = lineTo + 1;
 				}
+				
 			}
 
 			return builder.finish();
 		}
+		
 	},
 	{ decorations: (v) => v.decorations },
 );
