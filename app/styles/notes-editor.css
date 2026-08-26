@@ -88,6 +88,6 @@
 }
 
 .cm-cursor {
-    border-left: 2px solid #c6a3f2 !important;
+    border-left: 2px solid var(--txt-4) !important;
 }
 
